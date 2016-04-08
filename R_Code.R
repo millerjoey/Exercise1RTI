@@ -41,8 +41,6 @@ ggplot(data=df, aes(x=age, y=count, fill=Y,  color=Y)) +
   scale_x_continuous(breaks=seq(min(train$age),max(train$age), by=5)) +
   labs(title="Histogram of Age shaded by Probability")
 
-dev.print(pdf, "HistAgeProb.pdf")
-
 # Clearly not increasing (marginal distribution). Will convert to Factor:
 
 trainCut <- cbind.data.frame(train, "ageCut"=cut(train$age, breaks = c(16, 23, 27, 35, 55, 62, 67, 95)))
@@ -259,6 +257,7 @@ for (i in list) {
           labs(title=paste("P(Y=1) in", i[1], "x", i[2])))
 }
 
+# Figure 2. Is generated in the above batch.
 
 # Note: Used new data frame "trainF" to convert education to a factor. Was being
 # evaluated with continuous colors; couldn't change ggplot's default easily.
