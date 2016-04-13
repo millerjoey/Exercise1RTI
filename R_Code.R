@@ -140,14 +140,14 @@ ggplot(data=df, aes(x=sex, y=Y)) +
 
 #-------------||CAPITAL GAIN||--------------
 sum(train$capital_gain==0)
-# 44,000 zeros. Complicates things. If I have time, make two models with and without
+# 44,000 zeros. If I have time, make two models with and without
 # capital_gain and an if (capital_gain==0) clause.
 
 ggplot(data=train, aes(x=log(1+capital_gain), y=over_50k)) +
   geom_point() +
   labs(title="log(1+capital_gain) and Y") +
   geom_jitter()
-# Looks perfect for Logit if I ignore the zero cap gains.
+# Looks natural for Logit
 
 dim(filter(train, capital_gain>0))
 
